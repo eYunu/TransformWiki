@@ -1,0 +1,77 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<!-- Header-->
+<header class="masthead">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                <h1 class="display-1 lh-1 mb-3">Transforming ...</h1>
+                <h2 class="lead fw-normal text-muted mb-5">Transform the world to a better place</h2>
+                <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#getstarted">get started</a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="masthead-device-mockup">
+                <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="circleGradient" gradientTransform="rotate(45)">
+                            <stop class="gradient-start-color" offset="20%"></stop>
+                            <stop class="gradient-end-color" offset="80%"></stop>
+                    </linearGradient></defs>
+                    <circle cx="30" cy="20" r="12"></circle>
+                    <circle cx="50" cy="50" r="8"></circle>
+                    <circle cx="80" cy="70" r="5"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Content section 1-->
+<section id="getstarted">
+    <div class="container px-5">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Select an image to transform:</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+    </div>
+</section>
+<section id="getstarted2">
+    <div class="container px-5">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="transformCommand" placeholder="insert transform command">
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary"
+                        onClick="document.getElementById('getstarted').scrollIntoView();">start</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+
+
+<section id="Messages">
+    {% for message in messages %}
+    {% if message.tags == 'success' %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var m = "{{ message }}";
+        swal("Perfect !", m, "success") 
+    </script>
+    <!-- <h1>{{ message }}</h1> -->
+    {% endif %}
+    {% endfor %}
+</section>
+
+{% block js_block %}
+<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
+
+{% endblock content %}

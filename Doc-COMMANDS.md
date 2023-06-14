@@ -28,10 +28,12 @@
 
 7. Setting git SSH in linux server:
    1. https://support.atlassian.com/bitbucket-cloud/docs/set-up-personal-ssh-keys-on-linux/
-   2. e.g: 
-      1. ssh-keygen -t ed25519 -b 4096 -C "yinyeo.ng.dds@gmail.com" -f gdv2azuregit
-      2. enter passphrase: dds123
-      3. Your identification has been saved in gdv2azuregit
+   2. https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+   3. e.g: 
+      1. Open git bash
+      2. ssh-keygen -t ed25519 -b 4096 -C "yinyeo.ng.dds@gmail.com" -f gdv2azuregit
+      3. enter passphrase: dds123
+      4. Your identification has been saved in gdv2azuregit
          Your public key has been saved in gdv2azuregit.pub
          The key fingerprint is:
          SHA256:+8g0FxrgL9yaVk0xIYc7ftzPuRZkHU/NFjtxt4z3Cc0 yinyeo.ng.dds@gmail.com
@@ -47,8 +49,8 @@
          |      .* =    =  |
          |     .o o .  ... |
          +----[SHA256]-----+
-      4. exec ssh-agent bash
-      5. ssh-add ~/gdsshkey_vps
-      6. Then add the fingerprint to bitbucket (whole line including the email)
-      7. test connection: ssh -T git@bitbucket.org
-      8. 
+      5. exec ssh-agent bash
+      6. ssh-add ~/gdsshkey_vps
+      7. Then add the fingerprint to bitbucket (whole line including the email)
+      8. test connection: ssh -T git@bitbucket.org
+      9. 
