@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+# import numpy as np
+# from django
 # Create your views here.
 
 def mainpage(request):
